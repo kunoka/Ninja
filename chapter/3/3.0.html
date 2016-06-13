@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数的几种数据类型</title>
+    <script>
+        window.onload = function(){
+            var a = null;
+            console.log(typeof (a));
+            var a = new Date();
+            if(a !== null) {
+                console.log("I am a & not null.");
+            }
+            console.log("undefined == null: " + undefined == null); //false
+            console.log("undefined == null: " + (undefined == null)); //undefined == null: true
+            console.log("undefined == null: " + (undefined === null)); //undefined == null: false
+
+            var message = '';
+            var messageAsBoolean = Boolean(message);
+            console.log("messageAsBoolean: " + messageAsBoolean); //空字符串" "返回true,空空字符串""返回false
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
