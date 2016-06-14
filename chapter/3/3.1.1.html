@@ -6,17 +6,25 @@
     <script src="../app/assert.js"></script>
     <link rel="stylesheet" href="../app/main.css"/>
     <script>
-
        function useless(callback){
            return callback();
        }
-
-       window.onload = function(){
+       //window.onload后面直接接方法a,不能接a();否则会报错
+        /* window.onload第一种方法 */
+/*       var a = function(){
            var text = 'Domo arigato!';
            assert(useless(function(){
                return text;
            })===text,"The useless function works! " + text);
-       }
+       };
+       window.onload = a;*/
+       /* window.onload第一种方法 */
+       window.onload = function(){
+           var text = 'Domo arigato!';
+           assert(useless(function(){
+                       return text;
+                   })===text,"The useless function works! " + text);
+       };
     </script>
 </head>
 <body>
