@@ -3,6 +3,16 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>3.1.2</title>
+    <script>
+        var values = [213,16,2058,54,10,1965,57,9];
+        console.log(values);
+        values.sort();
+        console.log(values);
+        values.sort(function(value1,value2){return value2 - value1;}); //降序
+        console.log(values);
+        values.sort(function(value1,value2){return value1 - value2;}); //升序
+        console.log(values);
+    </script>
 </head>
 <body>
  <div>I am body </div>

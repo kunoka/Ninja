@@ -3,4 +3,10 @@
 }
 #results li.fail{
     color: red;
+    text-decoration:line-through;
+}
+
+ul {
+    border: 2px solid gray;
+
 }

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../app/assert.js"></script>
+    <link rel="stylesheet" href="../app/main.css"/>
+</head>
+<body>
+<ul id="results"></ul>
+</body>
+</html><html lang="en">
+<script>
+    function forEach(list,callback){
+        for(var n=0;n<list.length;n++){
+            callback.call(list[n],n);
+        }
+    }
+    var weapons = ['shuriken','katana','nunchucks'];
+    forEach(weapons,function(index){
+        assert(this == weapons[index],"Got the expected value of " + weapons[index]);
+    })
+</script>

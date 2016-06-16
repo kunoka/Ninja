@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Template Codes Checking</title>
+    <script src="../app/assert.js"></script>
+    <link rel="stylesheet" href="../app/main.css"/>
+
+</head>
+<body>
+<ur id="results"></ur>
+</body>
+</html>
+<script>
+    var obj = {};
+    var fn = function(){};
+    obj.prop = "hitsuke(distraction)";
+    fn.prop = "tanuki(climbing)";
+    assert(obj&&fn,"Both the object and function exist.");
+</script>

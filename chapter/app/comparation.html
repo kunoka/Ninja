@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../app/assert.js"></script>
+    <link rel="stylesheet" href="../app/main.css"/>
+</head>
+<body>
+<ul id="results"></ul>
+</body>
+<script>
+
+    function Comparation(master, sql){
+
+        for (it in master){
+            var first = master[it];
+            var second = sql[it];
+            var firstSql;
+            var secondSql;
+            var result = true;
+            console.log("=====================================");
+            console.log(it)
+            if(second !== undefined){
+
+                var firstObj = TransfertoJSON(first);
+                var secondObj = TransfertoJSON(second);
+//            console.log(firstObj);
+//            console.log(secondObj);
+                //loop to compare each property for firstObj
+                for(o in firstObj){
+
+                    if(firstObj[o] !== secondObj[o]){
+                        console.log(o + ": " + firstObj[o] + " = " + secondObj[o]);
+                        result = false;
+                        break;
+                    }else{
+                        console.log(o + ": " + firstObj[o] + " = " + secondObj[o]);
+                    }
+                }
+            }else{
+                console.log(master[it] + " is not defined in sql");
+            }
+
+            if(!result){
+                break;
+            }
+        }
+        return result;
+    }
+    function TransfertoJSON(str){
+        var tmpObj = {}
+        if(typeof (str) === "string"){
+            var tmpObj = JSON.parse(str); //transfer to JSON
+        }else if(typeof (str === "object")){
+            tmpObj = first;
+        }
+        return tmpObj;
+    }
+
+    var a11 = {"巣鴨信金世田谷支店普通(総合)23456781ｱｲｶﾜ ﾕｷｺ": "{\"nickname\":\"Harry\",\"avatar\":\"images/avatars/1-02.png\",\"displayNickname\":\"<Harry>\"}", "ゆうちょ銀行墨田支店決済用普通10203041ﾀﾆ ﾏﾆﾋﾛ": "{\"nickname\":\"Lisa\",\"avatar\":\"images/avatars/1-05.png\",\"displayNickname\":\"<Lisa>\"}"};
+    var b11 = {"ゆうちょ銀行墨田支店決済用普通10203041ﾀﾆ ﾏﾆﾋﾛ": "{\"nickname\":\"Lisa\",\"avatar\":\"images/avatars/1-05.png\",\"displayNickname\":\"<Lisa>\"}", "巣鴨信金世田谷支店普通(総合)23456781ｱｲｶﾜ ﾕｷｺ": "{\"nickname\":\"Harry\",\"avatar\":\"images/avatars/1-02.png\",\"displayNickname\":\"<Harry>\"}"};
+
+
+    var a12 = {"ゆうちょ銀行墨田支店決済用普通10203041ﾀﾆ ﾏﾆﾋﾛ": "{\"nickname\":\"Lisa\",\"avatar\":\"data:image/png;base64…uKg0AAAAAElFTkSuQmCC\",\"displayNickname\":\"<Lisa>\"}", "巣鴨信金世田谷支店普通(総合)23456781ｱｲｶﾜ ﾕｷｺ": "{\"nickname\":\"Harry\",\"avatar\":\"data:image/png;base6…gAAAABJRU5ErkJggg==\",\"displayNickname\":\"<Harry>\"}"}
+    var b12 = {"巣鴨信金世田谷支店普通(総合)23456781ｱｲｶﾜ ﾕｷｺ": "{\"nickname\":\"Harry\",\"avatar\":\"data:image/png;base6…G8AAAAASUVORK5CYII=\",\"displayNickname\":\"<Harry>\"}", "ゆうちょ銀行墨田支店決済用普通10203041ﾀﾆ ﾏﾆﾋﾛ": "{\"nickname\":\"Lisa\",\"avatar\":\"data:image/png;base64…KgAAAABJRU5ErkJggg==\",\"displayNickname\":\"<Lisa>\"}"}
+
+    var a21 = {"みずほ銀行会津支店普通1234567ﾃｽﾄｳｹｺｳｻﾞﾒｲｷﾞ01": "{\"nickname\":\"TestName1\",\"avatar\":\"images/avatars/1-02.png\",\"displayNickname\":\"<TestName1>\"}", みずほ銀行青葉台支店普通2222222ﾃｽﾄｳｹｺｳｻﾞﾒｲｷﾞ02: "{\"nickname\":\"TestName2\",\"avatar\":\"images/avatars/1-05.png\",\"displayNickname\":\"<TestName2>\"}", "三井住友銀行銀座支店普通282740ﾃｽﾄ0207 035": "{\"nickname\":\"\",\"avatar\":\"images/smbc_portrait.png\",\"displayNickname\":\"\"}"}
+    var b21 = {"三井住友銀行銀座支店普通282740ﾃｽﾄ0207 035": "{\"nickname\":\"\",\"avatar\":\"images/smbc_portrait.png\",\"displayNickname\":\"\"}", "みずほ銀行会津支店普通1234567ﾃｽﾄｳｹｺｳｻﾞﾒｲｷﾞ01": "{\"nickname\":\"TestName1\",\"avatar\":\"images/avatars/1-02.png\",\"displayNickname\":\"<TestName1>\"}", "みずほ銀行青葉台支店普通2222222ﾃｽﾄｳｹｺｳｻﾞﾒｲｷﾞ02": "{\"nickname\":\"TestName2\",\"avatar\":\"images/avatars/1-05.png\",\"displayNickname\":\"<TestName2>\"}"}
+
+    var a22 = {"みずほ銀行会津支店普通1234567ﾃｽﾄｳｹｺｳｻﾞﾒｲｷﾞ01": "{\"nickname\":\"TestName1\",\"avatar\":\"data:image/png;b…ABJRU5ErkJggg==\",\"displayNickname\":\"<TestName1>\"}", みずほ銀行青葉台支店普通2222222ﾃｽﾄｳｹｺｳｻﾞﾒｲｷﾞ02: "{\"nickname\":\"TestName2\",\"avatar\":\"data:image/png;b…AAASUVORK5CYII=\",\"displayNickname\":\"<TestName2>\"}", "三井住友銀行銀座支店普通282740ﾃｽﾄ0207 035": "{\"nickname\":\"\",\"avatar\":\"images/smbc_portrait.png\",\"displayNickname\":\"\"}"}
+    var b22 ={"三井住友銀行銀座支店普通282740ﾃｽﾄ0207 035": "{\"nickname\":\"\",\"avatar\":\"images/smbc_portrait.png\",\"displayNickname\":\"\"}", みずほ銀行会津支店普通1234567ﾃｽﾄｳｹｺｳｻﾞﾒｲｷﾞ01: "{\"nickname\":\"TestName1\",\"avatar\":\"data:image/png;b…ABJRU5ErkJggg==\",\"displayNickname\":\"<TestName1>\"}", "みずほ銀行青葉台支店普通2222222ﾃｽﾄｳｹｺｳｻﾞﾒｲｷﾞ02": "{\"nickname\":\"TestName2\",\"avatar\":\"data:image/png;b…ABJRU5ErkJggg==\",\"displayNickname\":\"<TestName2>\"}"}
+
+    assert(Comparation(a11,b11),"Comparation function executed.");
+    assert(Comparation(a12,b12),"Comparation function executed.");
+    assert(Comparation(a21,b21),"Comparation function executed.");
+    assert(Comparation(a22,b22),"Comparation function executed.");
+
+</script>
+</html>

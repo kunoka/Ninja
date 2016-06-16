@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>证明函数声明相关内容</title>
+    <script src="../app/assert.js"></script>
+    <link rel="stylesheet" href="../app/main.css"/>
+    <script>
+
+    </script>
+</head>
+<body>
+<ul id="results"></ul>
+</body>
+<script>
+    function isNimble(){
+        return true;
+    }
+    assert(typeof window.isNimble ===  "function","isNimble defined");
+    assert(isNimble.name === "isNimble", "isNimble() has a name");
+
+    var canFly = function(){return true;};
+    assert(typeof window.canFly === "function", "canFly() defined");
+    assert(canFly.name === "", "canFyl() has no name");
+
+    window.isDeadly = function(){return true;};
+    assert(typeof window.isDeadly === "function", "isDeadly() defined");
+
+    function outer(){
+        assert(typeof inner === "function", "inner() in scope before declaration");
+        function inner(){}
+        assert(typeof  inner === "function", "inner() in scope after declaration");
+
+        assert(window.inner === undefined, "inner() not in global scope");
+
+    }
+
+    outer();
+    assert(window.inner === undefined, "inner() still not in global scope");
+    window.wieldSword = function swingsSword(){return true;};
+    console.log(window.wieldSword.name);
+    console.log(wieldSword.name);
+    assert(window.wieldSword.name === "swingsSword","wieldSword's real name is swingsSword");
+</script>
+</html>
