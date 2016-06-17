@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Template Codes Checking</title>
+    <script src="../app/assert.js"></script>
+    <link rel="stylesheet" href="../app/main.css"/>
+
+</head>
+<body>
+<ur id="results"></ur>
+</body>
+</html>
+<script>
+    function smallest(array){
+        console.log(this == Math);
+        return Math.min.apply(this,array);
+
+    }
+    function largest(array){
+        return Math.max.apply(this,array);
+    }
+    assert(smallest([0,1,2,3]) == 0,"Located the smallest value.");
+    assert(largest([0,1,2,3]) == 3,"Located the largest value.");
+</script>

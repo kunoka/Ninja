@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../app/assert.js"></script>
+    <link rel="stylesheet" href="../app/main.css"/>
+</head>
+<body>
+<ul id="results"></ul>
+</body>
+</html>
+<script>
+    function addMethod(object,name,fn){
+        var old = object[name];
+        object[name] = function(){
+            if(fn.length == arguments.length)
+            return fn.apply(this,arguments);
+            else if(typeof old== "function")
+            return old.apply(this, arguments);
+        };
+    }
+
+    var ninja={};
+    addMethod(ninja,"whatever",function(){});
+    addMethod(ninja,"whatever",function(a){});
+    addMethod(ninja,"whatever",function(a,b){});
+
+    ninja.whatever();
+</script>

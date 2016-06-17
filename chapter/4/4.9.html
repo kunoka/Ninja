@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../app/assert.js"></script>
+    <link rel="stylesheet" href="../app/main.css"/>
+</head>
+<body>
+<ul id="results"></ul>
+</body>
+</html>
+<script>
+    function isPrime(value){
+        if(!isPrime.answers){ isPrime.answers = {}}
+        if(isPrime.answers[value] != null){
+            return isPrime.answers[value];
+        }
+        var prime = value != 1;
+        for(var i=2;i<value;i++){
+            if(value % i == 0){
+                prime = false;
+                break;
+            }
+        }
+        return isPrime.answers[value] = prime;
+    }
+    for(var v=1;v<50;v++){
+        assert(isPrime(v), v+ " in prime number.");
+    }
+//    assert(isPrime(5), "5 in prime number.");
+//    assert(isPrime.answers[5],"The answer was cached.");
+</script>

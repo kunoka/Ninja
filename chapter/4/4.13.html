@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Template Codes Checking</title>
+    <title></title>
     <script src="../app/assert.js"></script>
     <link rel="stylesheet" href="../app/main.css"/>
-
 </head>
 <body>
-<ur id="results"></ur>
+<ul id="results"></ul>
 </body>
 </html>
 <script>
-    var biggest = Math.max(1,2,4,5,7,83,45,67,339);
-    console.log(Math.min.call(Math,1,2,3));
-    assert(biggest === 339, biggest);
+    function multiMax(multi){
+        return multi * Math.max.apply(Math,arguments.slice(1));
+    }
+  assert(multiMax(3,1,2,3) == 9, "3*3=9 (First arg, by largest.)");
 </script>
