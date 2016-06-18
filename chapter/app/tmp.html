@@ -12,7 +12,13 @@
 </body>
 </html>
 <script>
-    var biggest = Math.max(1,2,4,5,7,83,45,67,339);
-    console.log(Math.min.call(Math,1,2,3));
-    assert(biggest === 339, biggest);
+    function delay1(){
+        var a =
+        function delay2(){
+            setTimeout(function(){console.log("delay1: " + new Date())},1000);
+        }();
+        console.log("after delay1");
+       setTimeout(function(){console.log("delay2: " + new Date())},1000);
+    }
+    delay1();
 </script>

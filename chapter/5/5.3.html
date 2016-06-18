@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../app/assert.js"></script>
+    <link rel="stylesheet" href="../app/main.css"/>
+</head>
+<body>
+<ul id="results"></ul>
+</body>
+<script>
+    var outerValue = "ninja";
+    var later;
+    function outerFunctoin(){
+        console.log(" inner outerFunction.");
+        var innerValue = "samurai";
+        function innerFunction(paramValue){
+            console.log(" inner innerFunction.");
+            assert(outerValue,"Inner can see the ninja.");
+            assert(innerValue,"Inner can see the samurai.");
+            assert(paramValue,"Inner can see the wakizashi.");
+            assert(tooLate,"Inner can see the ronin.")
+        }
+        later = innerFunction;
+    }
+    assert(tooLate,"Outer cannot see the ronin.");
+    var tooLate = "ronin";
+    outerFunctoin();
+    later('wakizashi');
+</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../app/assert.js"></script>
+    <link rel="stylesheet" href="../app/main.css"/>
+</head>
+<body>
+<ul id="results"></ul>
+</body>
+</html>
+<script>
+    function Ninja(){
+        var feints = 0;
+
+        this.getFeints = function(){
+            return feints;
+        };
+
+        this.feint = function(){
+            feints ++;
+        }
+    }
+
+    var ninja = new Ninja();
+    ninja.feint();
+    assert(ninja.getFeints() == 1, "It can get fients by getFients method");
+    assert(ninja.feints == 1, "It can not get fients directly");
+</script>
