@@ -5,8 +5,22 @@
     color: red;
     text-decoration:line-through;
 }
-
 ul {
-    border: 2px solid gray;
-
+    border: 1px solid gray;
+}
+#box{
+    height: 100px;
+    width: 100px;
+    border: 2px solid crimson;
+    position: relative;
+    /*border-radius: 50%;*/
+}
+#box1{
+    height: 100px;
+    left: 300px;
+    top:300px;
+    width: 100px;
+    border: 2px solid forestgreen;
+    position: relative;
+    /*border-radius: 50%;*/
 }

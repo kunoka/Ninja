@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../app/assert.js"></script>
+    <link rel="stylesheet" href="../app/main.css"/>
+</head>
+<body>
+<ul id="results"></ul>
+<div id="box">攻击</div>
+<div id="box1">攻击</div>
+</body>
+</html>
+<script>
+    function animateIt(elementId,interval){
+        var elem = document.getElementById(elementId);
+        var tick = 0;
+        var timer = setInterval(function(){
+            if(tick<interval){
+                console.log(elem.innerText);
+
+                elem.style.left = elem.style.top = tick + "px";
+//                elem.style.left = Math.random()*300 + "px";
+//                elem.style.top = Math.random()*200 + "px";
+                elem.innerText = elem.style.left + " - " + elem.style.top;
+                tick++;
+            }else{
+                clearInterval(timer);
+                assert(tick==interval,"tick accessed via a closure.");
+                assert(elem,"Element also accessed via a closure.");
+                assert(timer,"Timer reference also obtained via a closure.");
+            }
+        },10);
+    }
+
+    animateIt("box",300);
+//    animateIt("box1",200);
+</script>
