@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Template Codes Checking</title>
+    <script src="../app/assert.js"></script>
+    <link rel="stylesheet" href="../app/main.css"/>
+
+</head>
+<body>
+<ur id="results"></ur>
+</body>
+</html>
+<script>
+    (function(){
+      var numClick = 0;
+      addEventListener("click",function(){
+          console.log(++numClick);
+          document.getElementById("results").innerText = numClick;
+      },false);
+    })()
+</script>
