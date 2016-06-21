@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../app/assert.js"></script>
+    <link rel="stylesheet" href="../app/main.css"/>
+    <script src="../../resource/jquery.js"></script>
+</head>
+<body>
+<ul id="results"></ul>
+<div id="parent">
+    <div id="a">I am going to be removed.</div>
+    <div id="b">Me too!</div>
+</div>
+</body>
+<script>
+    HTMLElement.prototype.remove = function(){
+        if(this.parentNode){
+            this.parentNode.removeChild(this);
+        };
+    };
+        var a = document.getElementById("a");
+        a.parentNode.removeChild(a);
+        var b = document.getElementById("b");
+        document.getElementById("b").remove();
+
+        assert(!document.getElementById("a"),"a is gone.");
+        assert(!document.getElementById("b"),"b is gone.")
+
+</script>
+</html>

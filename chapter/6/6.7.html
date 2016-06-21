@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../app/assert.js"></script>
+    <link rel="stylesheet" href="../app/main.css"/>
+    <script src="../../resource/jquery.js"></script>
+</head>
+<body>
+<ul id="results"></ul>
+</body>
+<script>
+    function person(){}
+    person.prototype.dance = function(){};
+
+    function Ninja(){}
+    Ninja.prototype = {dance : person.prototype.dance};
+
+    var ninja= new Ninja();
+    assert(ninja instanceof Ninja, "ninja receives functionality from the Ninja prototype");
+    assert(ninja instanceof person, "ninja instance of person, ... and the Person prototype");
+    assert(ninja instanceof Object, "ninja instance of object, ... and the Object prototype");
+</script>
+</html>

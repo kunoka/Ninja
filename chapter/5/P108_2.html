@@ -12,11 +12,10 @@
 </body>
 </html>
 <script>
-    (function(){
-      var numClick = 0;
-      addEventListener("click",function(){
-          console.log(++numClick);
-          document.getElementById("results").innerText = numClick;
-      },false);
-    })()
+   document.addEventListener("click",(function(){
+       var numClick = 0;
+       return function(){
+           console.log(++numClick);
+       }
+   })(),false);
 </script>

@@ -11,13 +11,20 @@
 </body>
 <script>
     Function.prototype.memoized = function(key){
-        this._7values = this._values || {};
+        this._values = this._values || {};
         return this._values[key] !== undefined ?
                 this._values[key] :
                 this._values[key] = this.apply(this,arguments);
     };
 
-    function isPrime(num){
+    Function.prototype.memoize = function(){
+        var fn = this;
+        return function(){
+            return fn.memoized.apply(fn,arguments);
+
+        }
+    }
+    var isPrime = (function isPrime(num){
         var prime = num !=1;
         for(var i = 2;i < num;i++){
             if(num%i == 0){
@@ -26,8 +33,10 @@
             }
         }
         return prime;
+    }).memoize();
+    for(var j=1;j<20;j++){
+        assert(isPrime.memoized(j), j + " is prime.");
     }
-    assert(isPrime.memoized(5),"The function works; 5 is prime.");
-    assert(isPrime._values[5],"The answer has been cached.");
+
 </script>
 </html>

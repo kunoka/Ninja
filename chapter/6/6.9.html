@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../app/assert.js"></script>
+    <link rel="stylesheet" href="../app/main.css"/>
+    <script src="../../resource/jquery.js"></script>
+</head>
+<body>
+<ul id="results"></ul>
+</body>
+<script>
+    if(!Array.prototype.forEachNew){
+        Array.prototype.forEachNew = function(callback,context){
+            for(var i=0;i<this.length;i++){
+                callback.call(context||null,this[i],i,this);
+            }
+        };
+    }
+    ["a","b","c"].forEachNew(function(value,index,array){
+        assert(value,value + " Is in position " + index + " out of " + (array.length-1));
+    });
+</script>
+</html>

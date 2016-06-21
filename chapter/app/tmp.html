@@ -12,13 +12,7 @@
 </body>
 </html>
 <script>
-    function delay1(){
-        var a =
-        function delay2(){
-            setTimeout(function(){console.log("delay1: " + new Date())},1000);
-        }();
-        console.log("after delay1");
-       setTimeout(function(){console.log("delay2: " + new Date())},1000);
-    }
-    delay1();
+    (function(what){
+        alert(what);
+    })("hi there!");
 </script>

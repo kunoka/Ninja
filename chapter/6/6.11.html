@@ -10,4 +10,15 @@
 <body>
 <ul id="results"></ul>
 </body>
+<script>
+    Object.prototype.keys = function(){
+        var keys = [];
+        for(var p in this){
+            keys.push(p);
+        }
+        return keys;
+    };
+    var obj = {a:1,b:2,c:3};
+    assert(obj.keys().length == 3,"There are three properties in this object.");
+</script>
 </html>

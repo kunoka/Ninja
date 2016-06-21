@@ -24,3 +24,6 @@ ul {
     position: relative;
     /*border-radius: 50%;*/
 }
+.clickedOn {
+    border: 1px solid crimson;
+}

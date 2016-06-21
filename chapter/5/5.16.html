@@ -4,9 +4,21 @@
     <meta charset="UTF-8">
     <title></title>
     <script src="../app/assert.js"></script>
+    <script src="../../resource/jquery.js"></script>
     <link rel="stylesheet" href="../app/main.css"/>
 </head>
 <body>
 <ul id="results"></ul>
+<img src="../../resource/img/play_button.png" alt=""/>
 </body>
+<script>
+    $ = function(){
+        alert('not jQuery!');
+    };
+    (function($){
+        $('img').on('click',function(event){
+            $(event.target).addClass("clickedOn");
+        })
+    })(jQuery);
+</script>
 </html>

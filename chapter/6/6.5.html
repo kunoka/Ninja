@@ -10,4 +10,12 @@
 <body>
 <ul id="results"></ul>
 </body>
+<script>
+    function Ninja(){}
+    var ninja = new Ninja();
+
+    assert(typeof ninja == "object","ninja is object");
+    assert(ninja instanceof Ninja,"ninja is an instance of Ninja");
+    assert(ninja.constructor == Ninja,"ninja object was created by the Ninja function.")
+</script>
 </html>
