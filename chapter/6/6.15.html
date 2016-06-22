@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../app/assert.js"></script>
+    <link rel="stylesheet" href="../app/main.css"/>
+    <script src="../../resource/jquery.js"></script>
+</head>
+<body>
+<ul id="results"></ul>
+</body>
+<script>
+//    第一种实现
+  /*  function myArray(){}
+    myArray.prototype.length = 0;
+    var method =["push","shift","unshift","slice","contact"];
+    for(var i=0;i<method.length;i++){
+        myArray.prototype[method[i]] = Array.prototype[method[i]];
+    }
+    var mine = new myArray();
+    mine.push(1,2,3);
+    assert(mine.length == 3, "All the items are on our sub-class array.");
+    assert(mine instanceof  Array,"We arenot subclassing Array,though.");*/
+
+//    第二种实现 即时函数
+    function myArray(){}
+    (function(){
+        var method = ["push","shift","unshift","slice","contact","join","pop"];
+        for(var i=0;i<method.length;i++){
+            (function(name){
+                myArray.prototype[name] = function(){
+                    return Array.prototype[name].apply(this,arguments);
+                }
+            }(method[i]))
+        }
+    })();
+
+    var mine = new myArray();
+    mine.push(1,2,3);
+    assert(mine.length == 3, "All the items are on our sub-class array.");
+    assert(mine instanceof Array,"We arenot subclassing Array,though.");
+    assert(mine instanceof myArray,"We are subclassing myArray,though.");
+
+</script>
+</html>

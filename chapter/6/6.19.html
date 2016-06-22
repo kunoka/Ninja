@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../app/assert.js"></script>
+    <link rel="stylesheet" href="../app/main.css"/>
+    <script src="../../resource/jquery.js"></script>
+</head>
+<body>
+<ul id="results"></ul>
+</body>
+<script>
+    function User(first, last){
+        if(!(this instanceof arguments.callee)){
+            return new User(first, last);
+        }
+        this.name = first + " " + last;
+    }
+    var name = "Rukia";
+    var user = User("Ichigo", "Kurosaki");
+    assert(name == "Rukia","Name was set to Rukia.");
+    assert(user instanceof User,"User instantiated");
+    assert(user.name == "Ichigo Kurosaki", "User name corretly assigned");
+</script>
+</html>

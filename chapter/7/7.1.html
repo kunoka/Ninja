@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../app/assert.js"></script>
+    <link rel="stylesheet" href="../app/main.css"/>
+    <script src="../../resource/jquery.js"></script>
+</head>
+<body>
+<ul id="results"></ul>
+<script>
+    function isThisAZipCode(code){
+        if(code.length !=10 || typeof (code) !== "string"){
+            return false;
+        }
+        for(var i=0;i<code.length;i++){
+            var c = code[i];
+            switch (i){
+                case 0: case 1:case 2:case 3:case 4:case 6:case 7:case 8:case 9:
+                    if(c < '0' || c > '9'){
+                        return false;
+                    };
+                break;
+                case 5:
+                    if(c != "-"){
+                        return false;
+                    }
+                    break;
+            }
+
+        }
+        return true;
+    }
+//regular expression
+    function isThisAZipCode_Reg(candidate){
+        return /^\d{5}-\d{4}$/.test(candidate);
+    }
+    assert(isThisAZipCode("11111-3333"),"It is a A zipcode.");
+    assert(isThisAZipCode("1d111-3333"),"It is not a A zipcode.");
+
+    assert(isThisAZipCode_Reg("11111-3333"),"It is a A zipcode.");
+    assert(isThisAZipCode_Reg("1d111-3333"),"It is not a A zipcode.");
+</script>
+</body>
+</html>

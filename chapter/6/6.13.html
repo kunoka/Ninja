@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../app/assert.js"></script>
+    <link rel="stylesheet" href="../app/main.css"/>
+    <script src="../../resource/jquery.js"></script>
+</head>
+<body>
+<ul id="results"></ul>
+</body>
+<script>
+   Number.prototype.add = function(num){
+       return this + num;
+   };
+    var n = 5;
+    assert(n.add(3) == 8,"It works when the number is in a variable.");
+    assert((5).add(3) == 8,"Also works if a number is wrapped in parentheses.");
+</script>
+</html>
